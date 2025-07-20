@@ -2,6 +2,10 @@
 
 A Flask-based REST API for managing notes with AI-powered summarization capabilities using Hugging Face transformers.
 
+## Purpose
+
+This project was developed as a learning exercise to understand REST API design, implementation, and integration with modern AI technologies. It demonstrates practical application of web development concepts including CRUD operations, database management, and machine learning model integration.
+
 ## Features
 
 - **CRUD Operations**: Create, read, update, and delete notes
