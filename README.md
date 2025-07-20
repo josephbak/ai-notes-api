@@ -6,6 +6,36 @@ A Flask-based REST API for managing notes with AI-powered summarization capabili
 
 This project was developed as a learning exercise to understand REST API design, implementation, and integration with modern AI technologies. It demonstrates practical application of web development concepts including CRUD operations, database management, and machine learning model integration.
 
+## Architecture
+
+```
+┌─────────────┐            ┌──────────────────┐
+│   Client    │ <────────> │   Flask API      │
+│ (Postman/   │   HTTP     │   (app.py)       │
+│  Browser)   │  Requests  │                  │
+└─────────────┘            └────────┬─────────┘
+                                    │
+                                    ▼
+                           ┌─────────────────┐
+                           │ SQLite Database │
+                           │ (notes.db via   │
+                           │ SQLAlchemy ORM) │
+                           └─────────────────┘
+                                    ▲
+                                    │
+                           ┌─────────────────┐
+                           │   AI Model      │
+                           │ BART Summarizer │
+                           │ (Hugging Face)  │
+                           └─────────────────┘
+```
+
+**Data Flow:**
+1. Client sends HTTP requests to Flask API endpoints
+2. Flask processes requests and interacts with SQLite database via SQLAlchemy ORM
+3. For summarization requests, Flask calls the Hugging Face BART model
+4. Results are returned as JSON responses to the client
+
 ## Features
 
 - **CRUD Operations**: Create, read, update, and delete notes
